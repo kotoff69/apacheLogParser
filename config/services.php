@@ -44,4 +44,9 @@ return [
         ],
     ],
 
+    'log_parser' => [
+        'path' => resource_path('apache_logs/'),
+        'file_mask' => 'access_log_([\d]{4}-[\d]{2}-[\d]{2}).log',
+    ],
+
 ];
