@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes(['verify' => true]);
+
+Route::any('/', 'HomeController@index')->name('home');
+Route::any('/report', 'HomeController@report')->name('report');
+
+Route::prefix('ajax')->group(function () {
+    Route::prefix('log')->group(function () {
+        Route::get('groupByIp/{startDate}/{endDate}', 'AjaxController@groupedByIpLog');
+        Route::get('groupByIpDate/{startDate}/{endDate}', 'AjaxController@groupedByDateLog');
+    });
 });

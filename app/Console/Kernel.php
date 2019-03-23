@@ -24,8 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+         $schedule->command('apache_log:add')->everyMinute();
+         $schedule->command('apache_log:parse')->everyMinute()->withoutOverlapping();
     }
 
     /**

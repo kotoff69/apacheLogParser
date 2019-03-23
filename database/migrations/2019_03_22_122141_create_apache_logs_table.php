@@ -36,7 +36,7 @@ class CreateApacheLogsTable extends Migration
             $table->string('timezone', 10)
                 ->comment('Timezone');
 
-            $table->string('method', 5)
+            $table->string('method', 10)
                 ->comment('Method');
 
             $table->text('path')
@@ -45,9 +45,7 @@ class CreateApacheLogsTable extends Migration
             $table->string('protocol', 10)
                 ->comment('Protocol');
 
-            $table->string('status', 5)
-                ->nullable(true)
-                ->default(null)
+            $table->unsignedSmallInteger('status')
                 ->comment('Status');
 
             $table->string('bytes', 50)
@@ -55,12 +53,12 @@ class CreateApacheLogsTable extends Migration
                 ->default(null)
                 ->comment('Bytes');
 
-            $table->string('referer', 255)
+            $table->text('referer')
                 ->nullable(true)
                 ->default(null)
                 ->comment('Referer');
 
-            $table->string('agent', 255)
+            $table->text('agent')
                 ->nullable(true)
                 ->default(null)
                 ->comment('Agent');
